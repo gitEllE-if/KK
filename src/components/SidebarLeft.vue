@@ -31,6 +31,25 @@
         ><icon-script /></icon-base
       ><span>Заметки</span></router-link
     >
+    <router-link to="#" class="sidebar-item"
+      ><icon-base icon-name="chart" viewBox="0 0 19 19" width="20" height="20"
+        ><icon-chart /></icon-base
+      ><span>Статистика</span></router-link
+    >
+    <router-link to="#" class="sidebar-item"
+      ><icon-base
+        icon-name="clipboard"
+        viewBox="0 0 17 20"
+        width="20"
+        height="20"
+        ><icon-clipboard /></icon-base
+      ><span>Удобрения</span></router-link
+    >
+    <router-link to="#" class="sidebar-item"
+      ><icon-base icon-name="cloud" viewBox="0 0 20 20" width="20" height="20"
+        ><icon-cloud /></icon-base
+      ><span>Погода</span></router-link
+    >
     <router-link to="/organizations" class="sidebar-item"
       ><icon-base
         icon-name="bullhorn"
@@ -51,6 +70,9 @@ import IconCalendar from "@/components/icon/IconCalendar.vue";
 import IconPeople from "@/components/icon/IconPeople.vue";
 import IconScript from "@/components/icon/IconScript.vue";
 import IconBullhorn from "@/components/icon/IconBullhorn.vue";
+import IconChart from "@/components/icon/IconChart.vue";
+import IconClipboard from "@/components/icon/IconClipboard.vue";
+import IconCloud from "@/components/icon/IconCloud.vue";
 export default {
   name: "SidebarLeft",
   components: {
@@ -61,6 +83,9 @@ export default {
     IconPeople,
     IconBullhorn,
     IconScript,
+    IconChart,
+    IconClipboard,
+    IconCloud,
   },
   props: {
     msg: String,

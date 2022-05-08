@@ -59,10 +59,24 @@ body {
   color: #ffffff;
   margin: 0;
 }
+.g-text-main__bold {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0;
+}
 .g-text-second {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
+  color: $gray-light;
+  margin: 0;
+}
+.g-text-second__small {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
   color: $gray-light;
   margin: 0;
 }
