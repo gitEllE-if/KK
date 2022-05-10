@@ -21,6 +21,7 @@ export default new Vuex.Store({
     report: [],
     employees: [],
     technic: [],
+    structure: [],
     weather: {},
   },
   getters: {},
@@ -39,6 +40,9 @@ export default new Vuex.Store({
     },
     setTechnic(state, newTechnic) {
       state.technic = newTechnic;
+    },
+    setStructure(state, newStructure) {
+      state.structure = newStructure;
     },
     setWeather(state, newWeather) {
       state.weather = newWeather;
@@ -93,6 +97,16 @@ export default new Vuex.Store({
         }
       } catch (err) {
         console.warn("FAIL => get technic: " + err);
+      }
+    },
+    async getStructure({ commit }) {
+      try {
+        const res = await api.get("structure");
+        if (res) {
+          commit("setStructure", res);
+        }
+      } catch (err) {
+        console.warn("FAIL => get structure: " + err);
       }
     },
     async getWeather({ commit }) {

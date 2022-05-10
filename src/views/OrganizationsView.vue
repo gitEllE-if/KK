@@ -3,7 +3,14 @@
     <div class="main-container">
       <div class="main-top">
         <h1 class="g-title__h1">Организации</h1>
-        <PageControl />
+        <div class="main-top-right">
+          <input
+            class="main-top__input"
+            placeholder="Поиск организации по ИНН или ОГРН"
+          />
+          <button class="main-top__button">Найти</button>
+          <PageControl />
+        </div>
       </div>
       <div class="main-content">
         <article class="g-article">
@@ -94,8 +101,6 @@ export default {
     },
   },
 };
-
-//api.openweathermap.org/data/2.5/weather?lat=51.7373&lon=36.1874&APPID=1f4abda6ef9ca8875835acee3f4d620f
 </script>
 
 <style lang="scss" scoped>
@@ -117,6 +122,47 @@ article {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
+    &-right {
+      display: flex;
+    }
+    &__input {
+      width: 465px;
+      padding: 0 10px;
+      background: #3e4459;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      &::-webkit-input-placeholder {
+        font-weight: 300;
+        font-size: 14px;
+        color: $gray-lightest;
+      }
+      &:-ms-input-placeholder {
+        font-weight: 300;
+        font-size: 14px;
+        color: $gray-lightest;
+      }
+      &::placeholder {
+        font-weight: 300;
+        font-size: 14px;
+        color: $gray-lightest;
+      }
+    }
+    &__button {
+      padding: 7px 30px;
+      margin: 0 30px;
+      font-weight: 600;
+      font-size: 16px;
+      color: black;
+      background: white;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      &:hover {
+        color: white;
+        background-color: black;
+      }
+    }
   }
   &-content {
     display: flex;

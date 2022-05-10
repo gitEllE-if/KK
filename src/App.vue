@@ -27,6 +27,10 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+article,
+form {
+  box-sizing: border-box;
+}
 .container {
   display: flex;
   min-height: 100vh;
@@ -78,6 +82,13 @@ body {
   font-weight: 400;
   font-size: 12px;
   color: $gray-light;
+  margin: 0;
+}
+.g-text-third {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  color: $gray-lightest;
   margin: 0;
 }
 .g-article {

@@ -141,6 +141,14 @@
             </li>
           </ul>
           <div class="article-bottom">Добавить технику</div>
+          <icon-base
+            class="main-content__svg"
+            icon-name="graph"
+            width="285"
+            height="265"
+            viewBox="0 0 295 270"
+            ><icon-graph
+          /></icon-base>
         </article>
       </div>
     </div>
@@ -156,6 +164,7 @@ import IconMap from "@/components/icon/IconMap.vue";
 import IconBarchart from "@/components/icon/IconBarchart.vue";
 import IconPhone from "@/components/icon/IconPhone.vue";
 import IconMail from "@/components/icon/IconMail.vue";
+import IconGraph from "@/components/icon/IconGraph.vue";
 
 export default {
   name: "MainView",
@@ -167,6 +176,7 @@ export default {
     IconBarchart,
     IconPhone,
     IconMail,
+    IconGraph,
   },
   data() {
     return {
@@ -184,7 +194,7 @@ export default {
     };
   },
   created() {
-    // this.$store.dispatch("getWeather");
+    this.$store.dispatch("getWeather");
     this.$store.dispatch("getEmployees");
     this.$store.dispatch("getReport");
     this.$store.dispatch("getStatistics");
@@ -207,9 +217,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/style/_variables.scss";
-article {
-  box-sizing: border-box;
-}
+
 .main {
   background-color: $gray-medium;
   padding: 55px 40px;
