@@ -76,7 +76,6 @@ export default {
         perPage: 14,
         pagination: {
           show: false,
-          // dropdown: false,
           chunk: 14,
         },
         headings: {
@@ -194,6 +193,9 @@ article {
       }
       .VueTables__row {
         height: 50px;
+        &:first-child {
+          border-top: 1px solid $gray-dark;
+        }
         &:not(:last-child) {
           border-bottom: 1px solid $gray-dark;
         }

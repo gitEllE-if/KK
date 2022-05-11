@@ -411,6 +411,9 @@ export default {
       }
       .VueTables__row {
         height: 35px;
+        &:first-child {
+          border-top: 1px solid $gray-dark;
+        }
         &:not(:last-child) {
           border-bottom: 1px solid $gray-dark;
         }

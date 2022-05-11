@@ -17,12 +17,37 @@
           <hr noshade class="article__hr__dark" />
           <ul class="article__ul">
             <li
-              v-for="struct in structure"
+              v-for="(struct, index) in structure"
               :key="struct.id"
               class="article__li"
             >
               <div class="g-text-main__bold article__li-content">
-                {{ struct.name }}
+                <span class="li-header"
+                  >{{ struct.name }}
+                  <div @click="$set(fileShown, index, !fileShown[index])">
+                    <icon-base
+                      class="li-header-icon"
+                      :style="{
+                        transform: fileShown[index]
+                          ? 'rotateX(180deg)'
+                          : 'rotateX(0deg)',
+                      }"
+                      icon-name="arrow"
+                      width="13"
+                      height="13"
+                      viewBox="0 0 13 7"
+                      ><icon-arrow
+                    /></icon-base>
+                  </div>
+                  <icon-base
+                    v-if="fileShown[index]"
+                    class="li-header-file"
+                    icon-name="file"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    ><icon-file /></icon-base
+                ></span>
                 <span class="li-text__small-300">{{ struct.description }}</span>
               </div>
               <div class="g-text-main article__li-content">
@@ -50,6 +75,28 @@
                     ><icon-person /></icon-base
                   >{{ struct.staff }}</span
                 >
+              </div>
+              <div
+                v-if="struct.previous"
+                class="g-text-main__bold article__li-content"
+              >
+                Наименование организации до реорганизации
+                <ul class="article__ul article__ul__inner">
+                  <li
+                    v-for="(prev, idx) in struct.previous"
+                    :key="idx"
+                    class="li-icon-text g-text-second"
+                  >
+                    <icon-base
+                      class="li-icon g-text-main"
+                      icon-name="signature"
+                      width="17"
+                      height="17"
+                      viewBox="0 0 12 12"
+                      ><icon-signature /></icon-base
+                    >{{ prev }}
+                  </li>
+                </ul>
               </div>
               <hr noshade class="article__hr__dark" />
             </li>
@@ -167,6 +214,9 @@ import PageControl from "@/components/PageControl.vue";
 import IconBase from "@/components/IconBase.vue";
 import IconPerson from "@/components/icon/IconPerson.vue";
 import IconPoint from "@/components/icon/IconPoint.vue";
+import IconSignature from "@/components/icon/IconSignature.vue";
+import IconArrow from "@/components/icon/IconArrow.vue";
+import IconFile from "@/components/icon/IconFile.vue";
 
 export default {
   name: "EventsView",
@@ -175,9 +225,14 @@ export default {
     IconBase,
     IconPerson,
     IconPoint,
+    IconSignature,
+    IconArrow,
+    IconFile,
   },
   data() {
-    return {};
+    return {
+      fileShown: [true, true, true],
+    };
   },
   created() {
     this.$store.dispatch("getStructure");
@@ -268,6 +323,10 @@ ul {
       &:not(:nth-last-child(2)) {
         margin-bottom: 20px;
       }
+      .li-header {
+        display: flex;
+        justify-content: space-between;
+      }
       .li-text__small-300 {
         font-weight: 300;
         font-size: 12px;
@@ -291,6 +350,20 @@ ul {
       align-items: flex-end;
     }
   }
+}
+.li-header {
+  position: relative;
+  &-icon {
+    cursor: pointer;
+  }
+  &-file {
+    position: absolute;
+    top: 35px;
+    right: 0;
+  }
+}
+.article__ul__inner {
+  margin-top: 15px;
 }
 .article__button {
   border: none;
@@ -387,5 +460,8 @@ ul {
       border-radius: 5px;
     }
   }
+}
+.invisible {
+  display: none;
 }
 </style>
