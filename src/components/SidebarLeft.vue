@@ -139,8 +139,17 @@ export default {
         #656cff;
     }
   }
-  .sidebar-top {
+  &-top {
     margin-bottom: 85px;
+  }
+}
+@media (max-width: 420px) {
+  .sidebar {
+    width: 100%;
+    padding: 20px;
+    &-top {
+      margin-bottom: 30px;
+    }
   }
 }
 </style>

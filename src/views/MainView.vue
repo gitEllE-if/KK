@@ -70,7 +70,9 @@
             ><icon-barchart
           /></icon-base>
         </article>
-        <article class="g-article main-content__article">
+        <article
+          class="g-article main-content__article main-content__article__small"
+        >
           <h2 class="g-title__h2">Сотрудники</h2>
           <ul class="article__ul">
             <li
@@ -145,7 +147,7 @@
           <icon-base
             class="main-content__svg"
             icon-name="graph"
-            width="285"
+            width="280"
             height="265"
             viewBox="0 0 295 270"
             ><icon-graph
@@ -295,18 +297,24 @@ export default {
       width: 340px;
       height: 230px;
       margin-bottom: 30px;
+      order: 0;
+    }
+    &__article__small {
+      order: 2;
     }
     &__article__large {
       position: relative;
       width: 710px;
       height: 230px;
       margin-bottom: 30px;
+      order: 1;
     }
     &__article__medium {
       position: relative;
       width: 525px;
       height: 270px;
       margin-bottom: 30px;
+      order: 3;
     }
     &__svg {
       position: absolute;
@@ -394,6 +402,65 @@ export default {
   color: $blue-main;
   cursor: pointer;
 }
+
+@media (max-width: 1370px) {
+  .main {
+    &-container {
+      max-width: 710px;
+    }
+    &-content {
+      &__article__small {
+        order: 1;
+      }
+      &__article__large {
+        order: 2;
+      }
+      &__article__medium {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .main {
+    &-container {
+      max-width: 500px;
+    }
+    &-content {
+      &__article {
+        width: 100%;
+      }
+      &__article__large {
+        width: 100%;
+        .main-content__svg {
+          display: none;
+        }
+      }
+      &__article__medium {
+        .main-content__svg {
+          display: none;
+        }
+      }
+    }
+  }
+  .main-content__article__large + .main-content__svg {
+    display: none;
+  }
+}
+@media (max-width: 420px) {
+  .main {
+    padding: 20px;
+    &-container {
+      max-width: 350px;
+    }
+  }
+}
+@media (max-width: 360px) {
+  .main-content__article .main-content__svg {
+    width: 80%;
+  }
+}
 </style>
 
 <style lang="scss">
@@ -424,6 +491,14 @@ export default {
           }
         }
       }
+    }
+  }
+}
+@media (max-width: 420px) {
+  .report-table {
+    .VueTables {
+      width: 100%;
+      font-size: 12px;
     }
   }
 }

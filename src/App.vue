@@ -28,7 +28,9 @@ body {
   box-sizing: border-box;
 }
 article,
-form {
+form,
+nav,
+main {
   box-sizing: border-box;
 }
 .container {
@@ -99,6 +101,11 @@ form {
   color: #ffffff;
   &:hover {
     box-shadow: initial;
+  }
+}
+@media (max-width: 420px) {
+  .container {
+    flex-direction: column;
   }
 }
 </style>

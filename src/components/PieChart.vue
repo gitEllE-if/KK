@@ -1,5 +1,9 @@
 <template>
-  <Pie :chart-data="chartData" :chart-options="chartOptions" :styles="styles" />
+  <Pie
+    :chart-data="chartData"
+    :chart-options="chartOptions"
+    class="pie-chart"
+  />
 </template>
 <script>
 import { Pie } from "vue-chartjs/legacy";
@@ -39,25 +43,28 @@ export default {
     },
   },
   data() {
-    return {
-      styles: {
-        display: "flex",
-        height: "210px",
-        position: "absolute",
-        top: "25px",
-        right: "20px",
-        fontSize: "20px",
-      },
-    };
+    return {};
   },
-  // mounted() {
-  //   this.addPlugin(ChartPluginLabels);
-  //   this.renderChart(this.chartdata, this.options);
-  // },
-  // watch: {
-  //   chartdata() {
-  //     this.renderChart(this.chartdata, this.options);
-  //   },
-  // },
 };
 </script>
+<style lang="scss" scoped>
+.pie-chart {
+  display: flex;
+  height: 210px;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  font-size: 20px;
+}
+@media (max-width: 700px) {
+  .pie-chart {
+    height: 70%;
+    top: 50px;
+  }
+}
+@media (max-width: 420px) {
+  .pie-chart {
+    display: none;
+  }
+}
+</style>

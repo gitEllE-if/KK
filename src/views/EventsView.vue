@@ -231,7 +231,7 @@ export default {
   },
   data() {
     return {
-      fileShown: [true, true, true],
+      fileShown: [false, false, false],
     };
   },
   created() {
@@ -260,6 +260,7 @@ ul {
   &-top {
     color: white;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
@@ -463,5 +464,17 @@ ul {
 }
 .invisible {
   display: none;
+}
+@media (max-width: 1370px) {
+  .main {
+    &-container {
+      max-width: 710px;
+    }
+    &-top {
+      &__span {
+        display: none;
+      }
+    }
+  }
 }
 </style>
