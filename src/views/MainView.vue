@@ -120,6 +120,7 @@
               </div>
             </li>
           </ul>
+          <PieChart :chartData="chartData" :chartOptions="chartOptions" />
         </article>
         <article class="g-article main-content__article__medium">
           <h2 class="g-title__h2">Арендуемая техника</h2>
@@ -158,6 +159,7 @@
 <script>
 import { mapState } from "vuex";
 import PageControl from "@/components/PageControl.vue";
+import PieChart from "@/components/PieChart.vue";
 import IconBase from "@/components/IconBase.vue";
 import IconField from "@/components/icon/IconField.vue";
 import IconMap from "@/components/icon/IconMap.vue";
@@ -170,6 +172,7 @@ export default {
   name: "MainView",
   components: {
     PageControl,
+    PieChart,
     IconBase,
     IconField,
     IconMap,
@@ -191,6 +194,32 @@ export default {
           2018: "2018 год",
         },
       },
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+          display: false,
+        },
+        plugins: {
+          datalabels: {
+            formatter: function (value, context) {
+              let sum = 0;
+              let dataArr = context.chart.data.datasets[0].data;
+              dataArr.map((data) => {
+                sum += data;
+              });
+              let percentage = ((value * 100) / sum).toFixed(0) + "%";
+              return percentage;
+            },
+            color: "#fff",
+            font: {
+              size: 18,
+              weight: 700,
+            },
+          },
+        },
+      },
+      gradient: [],
     };
   },
   created() {
@@ -199,6 +228,19 @@ export default {
     this.$store.dispatch("getReport");
     this.$store.dispatch("getStatistics");
     this.$store.dispatch("getTechnic");
+  },
+  mounted() {
+    let canvas = document.getElementById("pie-chart");
+    this.gradient.push(
+      canvas.getContext("2d").createLinearGradient(0, 0, 200, 200)
+    );
+    this.gradient[0].addColorStop(0, "rgb(67, 232, 255)");
+    this.gradient[0].addColorStop(1, "rgb(0, 171, 171)");
+    this.gradient.push(
+      canvas.getContext("2d").createLinearGradient(0, 0, 200, 200)
+    );
+    this.gradient[1].addColorStop(0, "rgb(182, 26, 255)");
+    this.gradient[1].addColorStop(1, "rgb(0, 26, 255)");
   },
   computed: {
     ...mapState({
@@ -210,6 +252,17 @@ export default {
     }),
     columns: function () {
       return Object.keys(this.report[0]);
+    },
+    chartData: function () {
+      return {
+        datasets: [
+          {
+            data: this.statistics.map((el) => el.weight),
+            backgroundColor: this.gradient,
+            borderWidth: 0,
+          },
+        ],
+      };
     },
   },
 };

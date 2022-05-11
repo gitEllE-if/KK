@@ -132,7 +132,7 @@ const dataBase = {
     {
       id: 1,
       name: "Урожай 2020",
-      weight: 15150000,
+      weight: 33850000,
       unit: "тонн",
       area: "120 областей",
     },
