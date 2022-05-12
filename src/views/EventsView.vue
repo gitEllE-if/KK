@@ -108,21 +108,21 @@
               <li class="article__li">
                 <div class="article__li-content-row">
                   <span class="g-text-main__bold">Справка&nbsp;проверки</span>
-                  <hr noshade class="article__hr" />
+                  <div class="article__hr"></div>
                   <button class="article__button">Сформировать</button>
                 </div>
               </li>
               <li class="article__li">
                 <div class="article__li-content-row">
                   <span class="g-text-main__bold">Акт&nbsp;проверки</span>
-                  <hr noshade class="article__hr" />
+                  <div class="article__hr"></div>
                   <button class="article__button">Сформировать</button>
                 </div>
               </li>
               <li class="article__li">
                 <div class="article__li-content-row">
                   <span class="g-text-main__bold">Схема&nbsp;проверки</span>
-                  <hr noshade class="article__hr" />
+                  <div class="article__hr"></div>
                   <button class="article__button">Сформировать</button>
                 </div>
               </li>
@@ -356,6 +356,7 @@ ul {
   position: relative;
   &-icon {
     cursor: pointer;
+    margin-left: 40px;
   }
   &-file {
     position: absolute;
@@ -423,6 +424,7 @@ ul {
   flex-direction: column;
   &__button {
     margin: 0 auto;
+    width: 136px;
   }
   &-item {
     display: flex;
@@ -445,10 +447,16 @@ ul {
       padding: 0 5px;
       width: 303px;
       height: 32px;
-      background: #3e4459;
       border: none;
       outline: none;
       border-radius: 5px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: url("../assets/img/Arrow.svg") 96% / 4% no-repeat #3e4459;
+    }
+    &::-ms-expand {
+      display: none;
     }
     &__textarea {
       height: 56px;
@@ -459,6 +467,7 @@ ul {
       border: none;
       outline: none;
       border-radius: 5px;
+      overflow: auto;
     }
   }
 }
