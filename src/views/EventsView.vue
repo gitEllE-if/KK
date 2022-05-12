@@ -368,6 +368,7 @@ ul {
   margin-top: 15px;
 }
 .article__button {
+  min-width: 38%;
   border: none;
   background-color: black;
   font-weight: 600;
@@ -455,9 +456,6 @@ ul {
       appearance: none;
       background: url("../assets/img/Arrow.svg") 96% / 4% no-repeat #3e4459;
     }
-    &::-ms-expand {
-      display: none;
-    }
     &__textarea {
       height: 56px;
       font-family: inherit;
@@ -470,6 +468,9 @@ ul {
       overflow: auto;
     }
   }
+}
+.form-item__select::-ms-expand {
+  display: none;
 }
 .invisible {
   display: none;
