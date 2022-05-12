@@ -103,7 +103,7 @@ main {
     box-shadow: initial;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .container {
     flex-direction: column;
   }

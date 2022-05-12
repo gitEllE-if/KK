@@ -62,7 +62,7 @@ export default {
     top: 50px;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .pie-chart {
     display: none;
   }

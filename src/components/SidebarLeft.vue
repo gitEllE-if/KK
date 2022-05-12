@@ -143,7 +143,7 @@ export default {
     margin-bottom: 85px;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .sidebar {
     width: 100%;
     padding: 20px;

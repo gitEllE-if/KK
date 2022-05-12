@@ -422,7 +422,7 @@ export default {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 780px) {
   .main {
     &-container {
       max-width: 500px;
@@ -448,15 +448,13 @@ export default {
     display: none;
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .main {
     padding: 20px;
     &-container {
       max-width: 350px;
     }
   }
-}
-@media (max-width: 360px) {
   .main-content__article .main-content__svg {
     width: 80%;
   }
@@ -494,7 +492,7 @@ export default {
     }
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 500px) {
   .report-table {
     .VueTables {
       width: 100%;
